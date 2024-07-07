@@ -29,4 +29,10 @@ describe('String Calculator', () => {
         expect(() => add("1,2,")).toThrow("Invalid input: Separator found at the end");
         expect(() => add("1,2\n")).toThrow("Invalid input: Separator found at the end");
     });
+
+    it('should handle different delimiters', () => {
+        expect(add("//;\n1;2;3")).toBe(6);
+        expect(add("//|\n1|2|3|4")).toBe(10);
+        expect(add("//sep\n2sep3sep4")).toBe(9);
+    });
 });

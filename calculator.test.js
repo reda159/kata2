@@ -24,4 +24,8 @@ describe('String Calculator', () => {
         expect(add("1\n2,3")).toBe(6);
         expect(add("2\n3\n4")).toBe(9);
     });
+
+    it('should throw an error for delimiter at the end of string', () => {
+        expect(() => add("1,2,")).toThrow("Invalid input: Separator found at the end");
+    });
 });

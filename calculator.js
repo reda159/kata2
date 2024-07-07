@@ -3,7 +3,15 @@ function add(numbers) {
         return 0;
     }
 
-    const nums = numbers.split(",").map(num => parseInt(num));
+    let delimiter = ",";
+
+    // Replace newlines with the delimiter
+    numbers = numbers.replace(/\n/g, delimiter);
+
+    // Split numbers by delimiter
+    const nums = numbers.split(delimiter).map(num => parseInt(num));
+
+    // Sum the numbers
     return nums.reduce((acc, num) => acc + num, 0);
 }
 
